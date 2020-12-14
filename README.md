@@ -27,11 +27,12 @@
 |culumn             | type  | option    |
 |-------------------|-------|-----------|
 |title              |string | null:false|
+|explanation        | text  | null:false|
 |category_id        |string | null:false|
-|condition_id       |string | null:false|
-|delivery_fee       |integer| null:false|
-|shipping_area_id   |string | null:false|
-|days_ship          |integer| null:false|
+|condition_id       |integer | null:false|
+|delivery_fee_id    |integer| null:false|
+|shipping_area_id   |integer | null:false|
+|days_ship_id       |integer| null:false|
 |value              |integer| null:false|
 |user            |reference| foreign_key: true|
 
@@ -50,7 +51,7 @@
 |culumn      | type  | option    |
 |------------|-------|-----------|
 |postal_code | string| null:false|
-|shipping_area_id|string| null:false|
+|shipping_area_id|integer| null:false|
 |city        | text  | null:false|
 |address     | string| null:false|
 |building    | string|           |
@@ -76,4 +77,4 @@
 
 - belongs_to :user
 - belongs_to :product
-- has_one: buyers
+- has_one: buyer
