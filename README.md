@@ -5,8 +5,8 @@
 |culumn                |type   |option                 |
 |----------------------|---------|---------------------|
 |nickname              |string |null:false             |
-|password_confirmation |string  |null:false            |
-|email                 |string |null:false             |
+|encrypted_password    |string  |null:false            |
+|email                 |string |unique: true           |
 |first_name            |string |null:false             |
 |last_name             |string |null:false             |
 |first_name_kana       |string |null:false             |
@@ -18,8 +18,7 @@
 ### Association
 
 - has_many :products
-- has_many :buyers
-- has_one  :buy
+- has_many  :buys
 
 
 
@@ -28,11 +27,13 @@
 |culumn             | type  | option    |
 |-------------------|-------|-----------|
 |title              |string | null:false|
-|explanation        |text   | null:false|
-|details            |       | null:false|
-|value              |       | null:false|
-|delivery           |       | null:false|
-|user_id            | string| null:false|
+|Category           |string | null:false|
+|condition          |string | null:false|
+|delivery_fee       |integer| null:false|
+|shipping_area      |string | null:false|
+|days_ship          |integer| null:false|
+|value              |integer| null:false|
+|user_id            |reference| set null|
 
 ### Association
 
@@ -50,15 +51,15 @@
 |------------|-------|-----------|
 |postal_code | string| null:false|
 |prefectures |       | null:false|
-|cities      | text  | null:false|
-|address     | text  | null:false|
-|building    | text  |           |
+|city        | text  | null:false|
+|address     | string| null:false|
+|building    | string|           |
 |phone_number| string| null:false|
-|product_id  | string| null:false| 
+|product_id  | reference |set null|
 
 ### Association
 
-- has_one    :buy
+- belongs_to   :buy
 
 
 
@@ -67,11 +68,12 @@
 
 |culumn      | type  | option    |
 |------------|-------|-----------|
-|product_id  | string| null:false|
-|user_id     | string| null:false|
+|product_id  | reference | set null|
+|user_id     | reference | set null|
 
 
 ### Association
 
 - belongs_to :user
 - belongs_to :product
+- has_one: buyers
