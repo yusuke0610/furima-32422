@@ -52,7 +52,7 @@
 |------------|-------|-----------|
 |postal_code | string| null:false|
 |shipping_area_id|integer| null:false|
-|city        | text  | null:false|
+|city        |string | null:false|
 |address     | string| null:false|
 |building    | string|           |
 |phone_number| string| null:false|
