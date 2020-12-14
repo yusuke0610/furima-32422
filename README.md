@@ -34,7 +34,7 @@
 |shipping_area_id   |integer | null:false|
 |days_ship_id       |integer| null:false|
 |value              |integer| null:false|
-|user            |reference| foreign_key: true|
+|user            |references| foreign_key: true|
 
 ### Association
 
@@ -56,7 +56,7 @@
 |address     | string| null:false|
 |building    | string|           |
 |phone_number| string| null:false|
-|buy  | reference |foreign_key: true|
+|buy  | references |foreign_key: true|
 
 ### Association
 
@@ -69,8 +69,8 @@
 
 |culumn      | type  | option    |
 |------------|-------|-----------|
-|product | reference | foreign_key: true|
-|user     | reference | foreign_key: true|
+|product | references | foreign_key: true|
+|user     | references | foreign_key: true|
 
 
 ### Association
