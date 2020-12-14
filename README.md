@@ -27,13 +27,13 @@
 |culumn             | type  | option    |
 |-------------------|-------|-----------|
 |title              |string | null:false|
-|Category           |string | null:false|
-|condition          |string | null:false|
+|category_id        |string | null:false|
+|condition_id       |string | null:false|
 |delivery_fee       |integer| null:false|
-|shipping_area      |string | null:false|
+|shipping_area_id   |string | null:false|
 |days_ship          |integer| null:false|
 |value              |integer| null:false|
-|user_id            |reference| set null|
+|user            |reference| foreign_key: true|
 
 ### Association
 
@@ -50,12 +50,12 @@
 |culumn      | type  | option    |
 |------------|-------|-----------|
 |postal_code | string| null:false|
-|prefectures |       | null:false|
+|shipping_area_id|string| null:false|
 |city        | text  | null:false|
 |address     | string| null:false|
 |building    | string|           |
 |phone_number| string| null:false|
-|product_id  | reference |set null|
+|product  | reference |foreign_key: true|
 
 ### Association
 
@@ -68,8 +68,8 @@
 
 |culumn      | type  | option    |
 |------------|-------|-----------|
-|product_id  | reference | set null|
-|user_id     | reference | set null|
+|product | reference | foreign_key: true|
+|user     | reference | foreign_key: true|
 
 
 ### Association
