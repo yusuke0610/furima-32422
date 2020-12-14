@@ -28,7 +28,7 @@
 |-------------------|-------|-----------|
 |title              |string | null:false|
 |explanation        | text  | null:false|
-|category_id        |string | null:false|
+|category_id        |integer | null:false|
 |condition_id       |integer | null:false|
 |delivery_fee_id    |integer| null:false|
 |shipping_area_id   |integer | null:false|
@@ -56,7 +56,7 @@
 |address     | string| null:false|
 |building    | string|           |
 |phone_number| string| null:false|
-|product  | reference |foreign_key: true|
+|buy  | reference |foreign_key: true|
 
 ### Association
 
@@ -65,7 +65,7 @@
 
 
 
-## buy テーブル
+## buys テーブル
 
 |culumn      | type  | option    |
 |------------|-------|-----------|
