@@ -2,19 +2,18 @@
 
 ## users テーブル
 
-|culumn    |type   |option     |
-|----------|-------|-----------|
-|nickname  |string |not null   |
-|password  |string |not null   |
-|password_confirmation  |string |not null   |
-|email     |string | not null  |
-|苗字　　　　|string |not null   |
-|名前       |string |not null   |
-|セイ　　　  |string | not null  |
-|メイ       |string | not null  |
-|birthday   |date  |not null   |
-|created_at|                   |
-|updated_at|                   |
+|culumn                |type   |option                 |
+|----------------------|---------|---------------------|
+|nickname              |string |null:false             |
+|password_confirmation |string  |null:false            |
+|email                 |string |null:false             |
+|first_name            |string |null:false             |
+|last_name             |string |null:false             |
+|first_name_kana       |string |null:false             |
+|last_name_kana        |string | null:false            |
+|birthday              |date  |null:false              |
+
+
 
 ### Association
 
@@ -28,15 +27,12 @@
 
 |culumn             | type  | option    |
 |-------------------|-------|-----------|
-|title              |string | not null  |
-|explanation        |text   | not null  |
-|details            |       | not null  |
-|value              |       | not null  |
-|delivery           |       | not null  |
-|id                 |       |           |
-|created_at         |       |           |
-|update_at          |       |           |
-|user_id            |       |           |
+|title              |string | null:false|
+|explanation        |text   | null:false|
+|details            |       | null:false|
+|value              |       | null:false|
+|delivery           |       | null:false|
+|user_id            | string| null:false|
 
 ### Association
 
@@ -52,16 +48,13 @@
 
 |culumn      | type  | option    |
 |------------|-------|-----------|
-|postal_code | string| not null  |
-|prefectures |       | not null  |
-|cities      | text  | not null  |
-|address     | text  | not null  |
+|postal_code | string| null:false|
+|prefectures |       | null:false|
+|cities      | text  | null:false|
+|address     | text  | null:false|
 |building    | text  |           |
-|phone_number| string| not null  |
-|id          |       |           |
-|created_at  |       |           |
-|update_at   |       |           |
-|product_id  |       |           | 
+|phone_number| string| null:false|
+|product_id  | string| null:false| 
 
 ### Association
 
@@ -74,8 +67,8 @@
 
 |culumn      | type  | option    |
 |------------|-------|-----------|
-|product_id  | string|  not null |
-|user_id     | string|  not null |
+|product_id  | string| null:false|
+|user_id     | string| null:false|
 
 
 ### Association
