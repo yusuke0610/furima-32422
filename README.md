@@ -5,9 +5,14 @@
 |culumn    |type   |option     |
 |----------|-------|-----------|
 |nickname  |string |not null   |
-|name      |string |not null   |
-|birthday  |string |not null   |
-|id        |                   |
+|password  |string |not null   |
+|password_confirmation  |string |not null   |
+|email     |string | not null  |
+|苗字　　　　|string |not null   |
+|名前       |string |not null   |
+|セイ　　　  |string | not null  |
+|メイ       |string | not null  |
+|birthday   |date  |not null   |
 |created_at|                   |
 |updated_at|                   |
 
@@ -23,7 +28,6 @@
 
 |culumn             | type  | option    |
 |-------------------|-------|-----------|
-|image              |       | not null  |
 |title              |string | not null  |
 |explanation        |text   | not null  |
 |details            |       | not null  |
@@ -32,12 +36,11 @@
 |id                 |       |           |
 |created_at         |       |           |
 |update_at          |       |           |
-|user_id         
+|user_id            |       |           |
 
 ### Association
 
 - belongs_to :user
-- has_one :buyer
 - has_one :buy
 
 
@@ -49,15 +52,12 @@
 
 |culumn      | type  | option    |
 |------------|-------|-----------|
-|postal_code |       | not null  |
+|postal_code | string| not null  |
 |prefectures |       | not null  |
 |cities      | text  | not null  |
 |address     | text  | not null  |
 |building    | text  |           |
 |phone_number| string| not null  |
-|card_number | string| not null  |
-|expiration_date string| not null  |
-|security_code string| not null  |
 |id          |       |           |
 |created_at  |       |           |
 |update_at   |       |           |
@@ -65,8 +65,6 @@
 
 ### Association
 
-- belongs_to :user
-- belongs_to :product
 - has_one    :buy
 
 
@@ -76,12 +74,11 @@
 
 |culumn      | type  | option    |
 |------------|-------|-----------|
-|product_id  |       |           |
-|user_id     |       |           |
-|buyer_id    |       |           |
+|product_id  | string|  not null |
+|user_id     | string|  not null |
+
 
 ### Association
 
-belongs_to :user
-belongs_to :product
-belongs_to :buyer
+- belongs_to :user
+- belongs_to :product
