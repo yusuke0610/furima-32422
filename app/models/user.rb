@@ -7,8 +7,8 @@ class User < ApplicationRecord
          has_many :products
          has_many :buys
 
-         VALID_PASSWORD_REGEX =/\A(?=.*?[a-z])(?=.*?[\d])\w{6,12}\z/
-         /\A[ぁ-んァ-ン一-龥]+\z/
+         VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])\w{6,12}\z/
+         
          validates :nickname, presence: true
          with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/} do
          validates :first_name, presence: true
