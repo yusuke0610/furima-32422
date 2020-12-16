@@ -11,28 +11,6 @@ RSpec.describe User, type: :model do
       it 'nickname.email.password.password_confirmation.first_name.last_name.first_name_kana.last_name_kana.生年月日が存在すれば登録できる'do
        expect(@user).to be_valid
       end
-      it 'passwordが6文字以上,英数字混合であれば登録できる'do
-        @user.password = "kuroda1"
-        expect(@user).to be_valid
-      end
-      it 'passwordに英数字が含まれることできれば登録できる'do
-        @user.password = "kuroda1"
-        @user.password_confirmation = @user.password
-        expect(@user).to be_valid
-      end
-      it 'passwordとpassword_confirmationが一致すれば登録できる'do
-        @user.password = "kuroda1"
-        @user.password_confirmation = "kuroda1"
-        expect(@user).to be_valid
-      end
-      it 'first_name_kanaがカタカナであれば登録できる'do
-        @user.first_name_kana = "クロタ"
-        expect(@user).to be_valid
-      end
-      it 'last_name_kanaがカタカナであれば登録できる'do
-        @user.last_name_kana = "ヒロキ"
-        expect(@user).to be_valid
-      end
     end
 
     context '新規登録がうまくいかないとき'do
@@ -136,7 +114,6 @@ RSpec.describe User, type: :model do
        end
        it 'last_name_kanaがカタカナでない'do
          @user.last_name_kana = "aaaaa"
-         
          @user.valid?
          expect(@user.errors.full_messages).to include("Last name kana is invalid")
        end
