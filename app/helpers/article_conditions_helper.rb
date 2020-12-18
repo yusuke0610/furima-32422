@@ -1,0 +1,2 @@
+module ArticleConditionsHelper
+end
