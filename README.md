@@ -17,16 +17,16 @@
 
 ### Association
 
-- has_many :products
+- has_many :items
 - has_many  :buys
 
 
 
-## productsテーブル
+## itemsテーブル
 
 |culumn             | type  | option    |
 |-------------------|-------|-----------|
-|title              |string | null:false|
+|title             |string | null:false|
 |explanation        | text  | null:false|
 |category_id        |integer | null:false|
 |condition_id       |integer | null:false|
@@ -69,12 +69,12 @@
 
 |culumn      | type  | option    |
 |------------|-------|-----------|
-|product | references | foreign_key: true|
+|item | references | foreign_key: true|
 |user     | references | foreign_key: true|
 
 
 ### Association
 
 - belongs_to :user
-- belongs_to :product
+- belongs_to :item
 - has_one: buyer

@@ -1,0 +1,2 @@
+module ArticleDaysShipsHelper
+end
