@@ -7,11 +7,7 @@ Rails.application.routes.draw do
   resources :items
 
   
-  resources :articles
-  resources :article_delivery_fees
-  resources :article_days_ships
-  resources :article_categories
-  resources :article_conditions
+  
 end
 
 

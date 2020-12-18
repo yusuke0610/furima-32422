@@ -81,17 +81,17 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Condition can't be blank", "Condition is not a number", "Condition can't be blank")
       end
 
-       it '配送料負担が空になっている' do
+      it '配送料負担が空になっている' do
         @item.delivery_fee_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery fee must be other than 1")
-       end
+      end
 
-        it '配送料負担が空欄になっている' do
+      it '配送料負担が空欄になっている' do
         @item.delivery_fee_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery fee can't be blank", "Delivery fee is not a number", "Delivery fee can't be blank")
-        end
+      end
 
       it '発送地域が空になっている' do
         @item.shipping_area_id = 1
