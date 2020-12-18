@@ -35,6 +35,12 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Value can't be blank", "Value is invalid", "Value is not a number")
       end
+      it '価格に半角数字以外の物が入っているとき' do
+        @item.value = "１Aあaア亜"
+        binding.pry
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Value is not a number")
+      end
       it 'カテゴリーが空になっている' do
         @item.category_id = 1
         @item.valid?
