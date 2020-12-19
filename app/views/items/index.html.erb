@@ -136,7 +136,7 @@
             <div class='sold-out'>
             <span>Sold Out!!</span>
            </div>
-           
+            
            <%# //商品が売れていればsold outを表示しましょう %>
          </div>
         <div class='item-info'>
@@ -155,7 +155,7 @@
           <% end %>
       </li>
       
-      <% if @items == nil %>
+      <% if @item[0] == nil %>
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
