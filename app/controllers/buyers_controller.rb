@@ -1,6 +1,7 @@
 class BuyersController < ApplicationController
   def index
     @buyer = BuyerBuy.new
+    @item = Item.find(params[:item_id])
   end
   
   def new
@@ -8,27 +9,28 @@ class BuyersController < ApplicationController
   end
 
   def create 
+    @item = Item.find(params[:item_id])
     @buyer = BuyerBuy.new(buy_params)
-    if pay_item
+    if @buyer.valid?
+       pay_item
        @buyer.save
-       redirect_to root_path
+    return redirect_to root_path
     else
        render :index
     end
-
   end
   
   private
   def buy_params
-    params.require(:buyer_buy).permit( :postal_code, :shipping_area_id, :city, :address, :building, :phone_number).merge(buy_id: params[:item_id])
-  end                                                                                                       
+    params.require(:buyer_buy).permit(:postal_code, :shipping_area_id, :city, :address, :building, :phone_number ).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+  end
 
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-      Payjp::Charge.create(
-        amount: buy_params[:price],  
-        card: buy_params[:token],    
-        currency: 'jpy'                 
-      )
+    Payjp::Charge.create(
+      amount: @item.value,
+      card: params[:token],
+      currency: 'jpy'
+    )
   end
 end
