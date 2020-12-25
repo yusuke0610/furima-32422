@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :genre_days_ship do
+  factory :price do
     
   end
 end

@@ -4,10 +4,9 @@ Rails.application.routes.draw do
 
   root to: "items#index"
 
-  resources :items
-  resources :buyers
-  
-  
+  resources :items do
+    resources :buyers 
+  end
 end
 
 
