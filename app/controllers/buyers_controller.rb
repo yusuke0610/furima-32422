@@ -4,7 +4,11 @@ class BuyersController < ApplicationController
   def index
     @buyer = BuyerBuy.new
     @item = Item.find(params[:item_id])
-    
+    if @item.user_id == current_user.id || @item.buy != @item.user_id
+      redirect_to  root_path
+    else
+      render :index
+    end
   end
 
   def new
