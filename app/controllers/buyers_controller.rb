@@ -10,8 +10,6 @@ class BuyersController < ApplicationController
     end
   end
 
-  def new
-  end
 
   def create 
     @buyer = BuyerBuy.new(buy_params)
