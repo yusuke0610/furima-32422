@@ -8,11 +8,15 @@ RSpec.describe BuyerBuy, type: :model do
 
     context "商品購入がうまくいく時" do
 
-      it "郵便番号、都道府県、市町村、番地、電話番号,カード情報が全て入力される時" do
+      it "郵便番号、都道府県、市町村、番地、電話番号,カード情報,建物が入力された時" do
+        expect(@buyer_buy).to be_valid
+      end
+      it "建物は空でも登録できる" do
+        @buyer_buy.building = ""
         expect(@buyer_buy).to be_valid
       end
 
-    end
+     end
 
     context "商品購入がうまくいかない時" do
       
@@ -64,8 +68,16 @@ RSpec.describe BuyerBuy, type: :model do
         @buyer_buy.valid?
         expect(@buyer_buy.errors.full_messages).to include("Phone number can't be blank","Phone number is invalid")
        end
-
-
+       it "電話番号は12桁以上では登録できないこと" do
+        @buyer_buy.phone_number = "123456789123"
+        @buyer_buy.valid?
+        expect(@buyer_buy.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+       end
+       it "電話番号は英数混合では登録できないこと" do
+        @buyer_buy.phone_number = "12345aaaaa1"
+        @buyer_buy.valid?
+        expect(@buyer_buy.errors.full_messages).to include("Phone number is invalid")
+       end
        it "カード情報が入力されていない" do
         @buyer_buy.token = ""
         @buyer_buy.valid?

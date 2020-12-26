@@ -5,8 +5,11 @@ FactoryBot.define do
     shipping_area_id { 2 }
     city {"高知市"}
     address {"高知1-2-3"}
-    phone_number { "12345678912" }
+    phone_number { 12345678911 }
+    building {"アパート"}
     token {"tok_6ccef7b1a48cec3bc80e65102b39"}
+    item_id { 1 }
+    user_id { 1 }
 
   end
 end

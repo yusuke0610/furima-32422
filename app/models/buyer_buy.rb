@@ -10,12 +10,15 @@ class BuyerBuy
   with_options presence: true ,format: { with: /\A[0-9]+\z/ } do
     validates :phone_number
   end
+  validates :phone_number,length: { maximum: 11 }
 
   with_options presence: true do
     validates :shipping_area_id
     validates :city
     validates :address
     validates :token
+    validates :user_id
+    validates :item_id
   end
   
 
