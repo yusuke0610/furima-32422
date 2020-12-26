@@ -13,14 +13,15 @@ class BuyerBuy
   validates :phone_number,length: { maximum: 11 }
 
   with_options presence: true do
-    validates :shipping_area_id
     validates :city
     validates :address
     validates :token
     validates :user_id
     validates :item_id
   end
-  
+  with_options  numericality: { other_than: 1 } ,presence: true do
+    validates :shipping_area_id
+  end
 
   def save
     buy = Buy.create( user_id: user_id ,item_id: item_id)
