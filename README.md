@@ -19,6 +19,7 @@
 
 - has_many :items
 - has_many  :buys
+- has_one :price
 
 
 
@@ -61,6 +62,7 @@
 ### Association
 
 - belongs_to   :buy
+- has_one :price
 
 
 
@@ -71,10 +73,12 @@
 |------------|-------|-----------|
 |item | references | foreign_key: true|
 |user     | references | foreign_key: true|
-
+|price       |integer| null:false|
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
 - has_one    :buyer
+
+
