@@ -3,13 +3,8 @@ class BuyerBuy
   attr_accessor :postal_code, :shipping_area_id, :city, :address, :building, :phone_number, :item_id, :user_id, :token
 
 
-  with_options presence: true , format: { with: /\A\d{3}[-]\d{4}\z/ } do
-    validates :postal_code 
-  end
-
-  with_options presence: true ,format: { with: /\A[0-9]+\z/ } do
-    validates :phone_number
-  end
+  validates :postal_code, presence: true , format: { with: /\A\d{3}[-]\d{4}\z/ } 
+  validates :phone_number,presence: true , format: { with: /\A[0-9]+\z/ } 
   validates :phone_number,length: { maximum: 11 }
 
   with_options presence: true do
@@ -19,9 +14,8 @@ class BuyerBuy
     validates :user_id
     validates :item_id
   end
-  with_options  numericality: { other_than: 1 } ,presence: true do
-    validates :shipping_area_id
-  end
+    validates :shipping_area_id,presence: true, numericality: { other_than: 1 } 
+  
 
   def save
     buy = Buy.create( user_id: user_id ,item_id: item_id)

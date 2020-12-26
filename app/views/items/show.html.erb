@@ -33,8 +33,7 @@
     <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
     <% else %>
 
-     <% if @item.buy %>
-     <% else %>
+     <% unless @item.buy %>
       <%= link_to '購入画面に進む', item_buyers_path(@item.id) ,class:"item-red-btn"%>
       <% end %>
       
