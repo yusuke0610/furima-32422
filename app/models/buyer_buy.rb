@@ -14,7 +14,8 @@ class BuyerBuy
     validates :user_id
     validates :item_id
   end
-    validates :shipping_area_id,presence: true, numericality: { other_than: 1 } 
+
+    validates :shipping_area_id, numericality: { other_than: 1 }, presence: true
   
 
   def save
