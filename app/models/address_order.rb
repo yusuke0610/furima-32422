@@ -1,4 +1,4 @@
-class BuyerBuy
+class AddressOrder
   include ActiveModel::Model
   attr_accessor :postal_code, :shipping_area_id, :city, :address, :building, :phone_number, :item_id, :user_id, :token
 
@@ -19,7 +19,7 @@ class BuyerBuy
   
 
   def save
-    buy = Buy.create( user_id: user_id ,item_id: item_id)
-    Buyer.create(postal_code: postal_code, shipping_area_id: shipping_area_id, city: city, address: address, building: building, phone_number: phone_number,buy_id: buy.id )
+    order = Order.create( user_id: user_id ,item_id: item_id)
+    Address.create(postal_code: postal_code, shipping_area_id: shipping_area_id, city: city, address: address, building: building, phone_number: phone_number,order_id: order.id )
   end
 end

@@ -1,6 +1,6 @@
-class Buyer < ApplicationRecord
+class Address < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :buy
+  belongs_to :order
   belongs_to :shipping_area
   
   
