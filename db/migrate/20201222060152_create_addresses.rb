@@ -1,6 +1,6 @@
-class CreateBuyers < ActiveRecord::Migration[6.0]
+class CreateAddresses < ActiveRecord::Migration[6.0]
   def change
-    create_table :buyers do |t|
+    create_table :addresses do |t|
 
       t.timestamps
       t.string :postal_code, null:false
@@ -9,7 +9,7 @@ class CreateBuyers < ActiveRecord::Migration[6.0]
       t.string :address, null:false
       t.string :building
       t.string :phone_number, null:false
-      t.references :buy, foreign_key: true
+      t.references :order, foreign_key: true
     end
   end
 end
