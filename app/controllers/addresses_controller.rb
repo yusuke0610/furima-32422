@@ -1,8 +1,8 @@
-class BuyersController < ApplicationController
+class AddressesController < ApplicationController
   before_action :authenticate_user!, only: [:index,:create]
   before_action :set_action, only: [:index,:create]
   def index
-     @buyer = BuyerBuy.new
+     @address = AddressOrder.new
     if @item.user_id == current_user.id && @item.buy != current_user.id
       redirect_to  root_path
     else
@@ -12,10 +12,10 @@ class BuyersController < ApplicationController
 
 
   def create 
-    @buyer = BuyerBuy.new(buy_params)
-    if @buyer.valid?
+    @address = AddressOrder.new(buy_params)
+    if @address.valid?
        pay_item
-       @buyer.save
+       @address.save
     return redirect_to root_path
     else
        render :index
@@ -24,7 +24,7 @@ class BuyersController < ApplicationController
   
   private
   def buy_params
-    params.require(:buyer_buy).permit(:postal_code, :shipping_area_id, :city, :address, :building, :phone_number ).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+    params.require(:address_order).permit(:postal_code, :shipping_area_id, :city, :address, :building, :phone_number ).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
   def pay_item
