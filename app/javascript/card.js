@@ -3,15 +3,13 @@ const pay = () => {
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
-
     const card = {
-      number: formData.get("buyer_buy[number]"),
-      exp_month: formData.get("buyer_buy[exp_month]"),
-      exp_year: `20${formData.get("buyer_buy[exp_year]")}`,
-      cvc: formData.get("buyer_buy[cvc]"),
+      number: formData.get("address_order[number]"),
+      exp_month: formData.get("address_order[exp_month]"),
+      exp_year: `20${formData.get("address_order[exp_year]")}`,
+      cvc: formData.get("address_order[cvc]"),
     };
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
