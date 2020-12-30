@@ -3,7 +3,7 @@ class AddressesController < ApplicationController
   before_action :set_action, only: [:index,:create]
   def index
      @address = AddressOrder.new
-    if @item.user_id == current_user.id && @item.buy != current_user.id
+    if @item.user_id == current_user.id || @item.order != current_user.id
       redirect_to  root_path
     else
       render :index
